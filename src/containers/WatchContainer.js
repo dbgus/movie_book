@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import Watch from '../components/Watch'
+import Wish from '../components/Watch'
 import Axios from 'axios';
 
 export class WatchContainer extends Component {
@@ -34,7 +34,7 @@ export class WatchContainer extends Component {
 
         return (
             <div>
-                <Watch watch={watch} movePage={this.showDetail} />
+                <Wish watch={watch} movePage={this.showDetail} />
             </div>
         )
     }

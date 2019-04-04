@@ -97,7 +97,7 @@ function Detail({ data, wishClick, watchClick }) {
                 </Numerical>
                 <IconBox>
                     <IconInfo>
-                        <Icon alt="" src={wish} id={data.id}  onClick={wishClick} />
+                        <Icon alt="" src={wish} id={data.id} onClick={wishClick} />
                         <span>add to wish list</span>
                     </IconInfo>
                     <IconInfo>
