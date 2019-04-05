@@ -41,7 +41,7 @@ function Chart({ data }) {
                 <h3>
                    &lt; your movie genres &gt;
                 </h3>
-                {data.map(res => <p>{res.name}: {res.value}</p>)}
+                {data.map(res => <p key={Object.values(res)}>{res.name}: {res.value}</p>)}
             </Expression>
         </ChartBox>
     )
