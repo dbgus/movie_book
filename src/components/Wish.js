@@ -11,10 +11,9 @@ function Wish({ wish, movePage }) {
         )
     }
     else {
-        console.log('fuck')
         return (
             <div>
-                hey, you don't add wish list, make wish list
+                hey, you don't have wish list, make wish list
             </div>
         )
     }

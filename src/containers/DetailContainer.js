@@ -15,6 +15,7 @@ export class DetailContainer extends Component {
     }
     //중복 체크 x
     wishClick = (data) => {
+        console.log(data.target)
         if (localStorage.getItem('wish')) {
             let Local = JSON.parse(localStorage.getItem("wish"))
             if (typeof Local === 'object') { //값이 두개 이상
