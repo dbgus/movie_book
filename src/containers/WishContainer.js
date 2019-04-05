@@ -63,9 +63,6 @@ export class WishContainer extends Component {
                     predata[index].value = predata[index].value + 1
                     predata.splice(resindex, 1)
                 }
-                else {
-                    console.log(2)
-                }
             })
         })
         this.setState({
