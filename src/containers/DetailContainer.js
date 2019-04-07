@@ -18,7 +18,6 @@ export class DetailContainer extends Component {
         this.props.detailReqeust(id)
         const wish = JSON.parse(localStorage.getItem("wish"));
         const watch = JSON.parse(localStorage.getItem("watch"));
-        console.log(wish, id)
         if (wish) { //데이터 유효성 검사
             if (typeof wish === 'number') {
                 if (id === wish) { //wishlist 하나만 있을 경우
@@ -28,30 +27,28 @@ export class DetailContainer extends Component {
                 }
             }
             else {
-                if (wish.find(el => parseInt(el) === id)){
+                if (wish.find(el => parseInt(el) === id)) {
                     this.setState({
-                        wish:true
+                        wish: true
                     })
                 }
             }
         }
 
         if (watch) {
-            if (id === watch) {
-                this.setState({
-                    watch: true
-                })
-            }
-            else if (typeof watch !== Number) {
-                watch.find(el => parseInt(el) === id && !undefined ?
+            if (typeof watch === 'number') {
+                if (id === watch) {
                     this.setState({
                         watch: true
                     })
-                    :
+                }
+            }
+            else {
+                if (watch.find(el => parseInt(el) === id)){
                     this.setState({
-                        watch: false
+                        watch:true
                     })
-                )
+                }
             }
         }
 
@@ -119,15 +116,39 @@ export class DetailContainer extends Component {
         let deleteCheck = window.confirm('do you want a remove this movie ?')
         const id = this.props.match.params.id
         const nameCheck = btn.target.name;
-        const data = parseInt(localStorage.getItem(nameCheck))
+        const data = JSON.parse(localStorage.getItem(nameCheck))
         if (deleteCheck) {
-            // console.log(typeof data)
-            // if (typeof data === Number) {
-            //     console.log(1)
-            // }
-            // else{
-            //     console.log(2)
-            // }
+            if (typeof data === 'string' || typeof data === 'number') {
+                localStorage.removeItem(nameCheck);
+                nameCheck === 'wish' ?
+                    this.setState({
+                        wish: false
+                    })
+                    :
+                    this.setState({
+                        watch: false
+                    })
+            }
+            else {
+
+                const newData = data.filter(el => el !== id)
+                newData.length === 1 ? //newData의 갯수 체크
+                    localStorage.setItem(nameCheck, JSON.parse(newData))
+                    :
+                    localStorage.setItem(nameCheck, JSON.stringify(newData))
+
+                nameCheck === 'wish' ?
+                    this.setState({
+                        wish: false
+                    })
+                    :
+                    this.setState({
+                        watch: false
+                    })
+            }
+        }
+        else {
+
         }
     }
 

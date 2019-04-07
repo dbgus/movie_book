@@ -115,12 +115,13 @@ function Detail({ data, wishClick, watchClick, deleteClick, wish, watch }) {
                     {
                         watch
                             ?
-                            <div>
-                                you has add this movie to watch list
-                            </div>
+                            <IconInfo >
+                                <Icon alt="" src={check} id={data.id} name="watch" onClick={deleteClick} />
+                                <span>you add to watch list</span>
+                            </IconInfo>
                             :
                             <IconInfo>
-                                <Icon alt="" src={eyeIcon} id={data.id} name="watch" onClick={deleteClick} />
+                                <Icon alt="" src={eyeIcon} id={data.id} onClick={watchClick} />
                                 <span>add to watch list</span>
                             </IconInfo>
                     }
