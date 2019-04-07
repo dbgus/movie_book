@@ -18,24 +18,21 @@ export class DetailContainer extends Component {
         this.props.detailReqeust(id)
         const wish = JSON.parse(localStorage.getItem("wish"));
         const watch = JSON.parse(localStorage.getItem("watch"));
-        console.log(id, wish)
-        if (wish) { //데이터 유효성 검사 
-            if (id === wish) { //wishlist 하나만 있을 경우
-                this.setState({
-                    wish: true
-                })
-            }
-            else if (typeof wish !== Number && typeof wish === Array) { //wishlist 여러개
-                wish.find(el => parseInt(el) === id && !undefined ?
+        console.log(wish, id)
+        if (wish) { //데이터 유효성 검사
+            if (typeof wish === 'number') {
+                if (id === wish) { //wishlist 하나만 있을 경우
                     this.setState({
                         wish: true
                     })
-
-                    :
+                }
+            }
+            else {
+                if (wish.find(el => parseInt(el) === id)){
                     this.setState({
-                        wish: false
+                        wish:true
                     })
-                )
+                }
             }
         }
 
@@ -65,7 +62,6 @@ export class DetailContainer extends Component {
     }
     wishClick = (data) => {
         const wish = JSON.parse(localStorage.getItem('wish'))
-        console.log(wish)
         if (wish) {
             if (typeof wish === 'object') { //값이 두개 이상
                 wish.push(data.target.id.toString())
@@ -119,9 +115,23 @@ export class DetailContainer extends Component {
         }
     }
 
-    overlapCheck = () => {
-        alert('you has add this movie')
+    delete = (btn) => {
+        let deleteCheck = window.confirm('do you want a remove this movie ?')
+        const id = this.props.match.params.id
+        const nameCheck = btn.target.name;
+        const data = parseInt(localStorage.getItem(nameCheck))
+        if (deleteCheck) {
+            // console.log(typeof data)
+            // if (typeof data === Number) {
+            //     console.log(1)
+            // }
+            // else{
+            //     console.log(2)
+            // }
+        }
     }
+
+
 
     render() {
         const { wish, watch } = this.state
@@ -134,7 +144,7 @@ export class DetailContainer extends Component {
                         data={data}
                         wishClick={this.wishClick}
                         watchClick={this.watchClick}
-                        overlap={this.overlapCheck}
+                        deleteClick={this.delete}
                         wish={wish}
                         watch={watch}
                     />

@@ -78,7 +78,7 @@ const Script = styled.p`
 
 `
 
-function Detail({ data, wishClick, watchClick, overlap, wish, watch }) {
+function Detail({ data, wishClick, watchClick, deleteClick, wish, watch }) {
     return (
         <DetailBox>
             <ImageBox>
@@ -103,7 +103,7 @@ function Detail({ data, wishClick, watchClick, overlap, wish, watch }) {
                         wish
                             ?
                             <IconInfo >
-                                <Icon alt="" src={check} id={data.id} onClick={overlap} />
+                                <Icon alt="" src={check} id={data.id} name="wish" onClick={deleteClick} />
                                 <span>you add to wish list</span>
                             </IconInfo>
                             :
@@ -120,7 +120,7 @@ function Detail({ data, wishClick, watchClick, overlap, wish, watch }) {
                             </div>
                             :
                             <IconInfo>
-                                <Icon alt="" src={eyeIcon} id={data.id} onClick={overlap} />
+                                <Icon alt="" src={eyeIcon} id={data.id} name="watch" onClick={deleteClick} />
                                 <span>add to watch list</span>
                             </IconInfo>
                     }
