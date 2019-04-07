@@ -1,8 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import wish from '../etc/icon/calendar.svg'
-import eye from '../etc/icon/eye.svg'
+import wishIcon from '../etc/icon/calendar.svg'
+import eyeIcon from '../etc/icon/eye.svg'
+import check from '../etc/icon/check.svg'
 
 const DetailBox = styled.div`
     height: 100%;
@@ -69,13 +70,15 @@ const IconInfo = styled.div`
     flex-direction: column;
 `
 
+
 const ScriptBox = styled.div`
     width:400px;
 `
 const Script = styled.p`
 
 `
-function Detail({ data, wishClick, watchClick }) {
+
+function Detail({ data, wishClick, watchClick, overlap, wish, watch }) {
     return (
         <DetailBox>
             <ImageBox>
@@ -96,14 +99,31 @@ function Detail({ data, wishClick, watchClick }) {
                     <NumericalItem>like: {data.like_count}</NumericalItem>
                 </Numerical>
                 <IconBox>
-                    <IconInfo>
-                        <Icon alt="" src={wish} id={data.id}  onClick={wishClick} />
-                        <span>add to wish list</span>
-                    </IconInfo>
-                    <IconInfo>
-                        <Icon alt="" src={eye} id={data.id} onClick={watchClick} />
-                        <span>add to watch list</span>
-                    </IconInfo>
+                    {
+                        wish
+                            ?
+                            <IconInfo >
+                                <Icon alt="" src={check} id={data.id} onClick={overlap} />
+                                <span>you add to wish list</span>
+                            </IconInfo>
+                            :
+                            <IconInfo>
+                                <Icon alt="" src={wishIcon} id={data.id} onClick={wishClick} />
+                                <span>add to wish list</span>
+                            </IconInfo>
+                    }
+                    {
+                        watch
+                            ?
+                            <div>
+                                you has add this movie to watch list
+                            </div>
+                            :
+                            <IconInfo>
+                                <Icon alt="" src={eyeIcon} id={data.id} onClick={overlap} />
+                                <span>add to watch list</span>
+                            </IconInfo>
+                    }
                 </IconBox>
                 <ScriptBox>
                     <Script>{data.description_full}</Script>

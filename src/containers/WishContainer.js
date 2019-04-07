@@ -14,8 +14,6 @@ export class WishContainer extends Component {
         }
     }
 
-
-
     componentWillMount = () => {
         let newData = []
         const wish_Local = JSON.parse(localStorage.getItem("wish"))
@@ -38,9 +36,6 @@ export class WishContainer extends Component {
 
         }
     }
-
-
-
 
     chartData = () => {
         let chart = []
@@ -83,9 +78,7 @@ export class WishContainer extends Component {
     }
 
     render() {
-
         const { wish, data } = this.state
-        // console.log(data)
 
         return (
 
