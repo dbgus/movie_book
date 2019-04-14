@@ -19,13 +19,20 @@ justify-content:center;
 align-items: center;
 `
 const InfoBox = styled.div`
-width:500px;
+width:700px;
 display:flex;
-justify-content: space-around;
-align-items: center;
+justify-content: space-between;
+`
+const MovieData = styled.div`
+    margin-left: 10px;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    
 `
 const Title = styled.p`
 font-size: 2rem;
+text-align:center;
 `
 const ShowDetail = styled.p`
 cursor: pointer;
@@ -33,17 +40,27 @@ cursor: pointer;
     text-decoration: underline
 }
 `
+const DataWord = styled.p`
+    padding:5px
+`
+const RedWord = styled.p`
+    color: red;
+    font-weight: bold;
+    padding:10px;
+`
 
-function WishItem({ data, movePage }) {
+function MovieItem({ data, movePage }) {
     return (
         <WishBox>
             <Poster alt="" src={data.medium_cover_image} />
             <Right>
                 <InfoBox>
                     <Title>{data.title}</Title>
-                    <p>{data.mpa_rating}</p>
-                    <p>rating: {data.rating} / 10 </p>
-                    <p>runTime: {data.runtime}M </p>
+                    <MovieData>
+                        <DataWord>rating: {data.rating} / 10 </DataWord>
+                        <DataWord>runTime: {data.runtime}M </DataWord>
+                        <RedWord>{data.mpa_rating}</RedWord>
+                    </MovieData>
                 </InfoBox>
                 <ShowDetail id={data.id} onClick={movePage} >
                     movie's detail
@@ -53,4 +70,4 @@ function WishItem({ data, movePage }) {
     )
 }
 
-export default WishItem
+export default MovieItem

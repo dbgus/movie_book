@@ -83,7 +83,7 @@ export class WishContainer extends Component {
         return (
 
             <div>
-                <Chart data={data} />
+                {wish ? <Chart data={data} /> : ''}
                 <Wish wish={wish} movePage={this.showDetail} />
             </div >
         )

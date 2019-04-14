@@ -1,12 +1,7 @@
 a{
-    grid-template-columns: 30% 30% 30%;
-    grid-auto-columns: ;
-    grid-row-gap: ;
     position: absolute;
-    cursor: pointer;
-    border-radius: ;
-    opacity: ;
-    justify-content: space-around ;
-    background-color: ;
+    position: relative;
     flex-direction: column;
+    align-items: center;
+    cursor: pointer;
 }

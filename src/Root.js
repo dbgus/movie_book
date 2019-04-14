@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Route } from "react-router-dom";
 import { createGlobalStyle } from "styled-components"
 
-import { Main, Detail, Wish, Watch } from "./page";
+import { Main, Detail, Wish, Watch, Setting } from "./page";
 
 export class Root extends Component {
     render() {
@@ -17,9 +17,10 @@ export class Root extends Component {
             <div>
                 <Route exact path='/' component={Main} />
                 <Route path='/detail/:id' component={Detail} />
-                <Route path='/wish' component={Wish}/>
-                <Route path='/watch' component={Watch}/>
-                
+                <Route path='/wish' component={Wish} />
+                <Route path='/watch' component={Watch} />
+                <Route path='/setting' component={Setting} />
+
                 <GlobalStyle />
             </div>
         )

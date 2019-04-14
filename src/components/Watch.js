@@ -1,5 +1,5 @@
 import React from 'react'
-import WatchItem from './WatchItem'
+import WatchItem from './MovieItem'
 
 function Watch({ watch, movePage }) {
     if (watch) {
@@ -11,7 +11,6 @@ function Watch({ watch, movePage }) {
         )
     }
     else {
-        console.log('fuck')
         return (
             <div>
                 hey, you don't add Watch list, make Watch list
