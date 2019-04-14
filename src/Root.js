@@ -3,6 +3,7 @@ import { Route } from "react-router-dom";
 import { createGlobalStyle } from "styled-components"
 
 import { Main, Detail, Wish, Watch, Setting } from "./page";
+import LeftHeader from './containers/HeaderContainer'
 
 export class Root extends Component {
     render() {
@@ -15,6 +16,7 @@ export class Root extends Component {
         `
         return (
             <div>
+                <LeftHeader />
                 <Route exact path='/' component={Main} />
                 <Route path='/detail/:id' component={Detail} />
                 <Route path='/wish' component={Wish} />

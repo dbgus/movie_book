@@ -4,7 +4,6 @@ import { movieRequest, scrollReqeuest } from "../store/modules/default";
 
 
 import MovieList from '../components/MovieList'
-import Left from '../components/LeftHeader'
 
 export class Root extends Component {
     state = {
@@ -18,13 +17,6 @@ export class Root extends Component {
 
     componentDidMount = () => {
         window.addEventListener('scroll', this.handleOnScroll)
-    }
-
-    MenuBtn = () => {
-        const { toggle } = this.state
-        this.setState({
-            toggle: !toggle
-        });
     }
 
     // handle onScroll event
@@ -46,24 +38,17 @@ export class Root extends Component {
 
     }
 
-    HeadermovePage = (page) => {
-        const { history } = this.props
-        history.push(`/${page.target.id}`)
-    }
+    
     movePage = (page) => {
         const { history } = this.props
         history.push(`/detail/${page.target.id}`)
-
-
     }
 
     render() {
 
         const { data } = this.props
-        const { toggle } = this.state
         return (
             <div>
-                <Left Toggle={this.MenuBtn} status={toggle} move={this.HeadermovePage} />
                 <MovieList onScroll={this.handleOnScroll} data={data} movePage={this.movePage} />
 
             </div>

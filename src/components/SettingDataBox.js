@@ -9,7 +9,7 @@ const DataBox = styled.div`
     border:1.5px solid black;
     border-radius: 5px;
     display:flex;
-    justify-content: flex-start;
+    justify-content: center;
     flex-wrap: wrap;
     background-color: white;
 `
