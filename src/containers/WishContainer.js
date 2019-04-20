@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Axios from 'axios';
 import Chart from '../components/Chart'
 import Wish from '../components/Wish'
+import LeftHeader from './HeaderContainer'
 
 export class WishContainer extends Component {
     constructor(props) {
@@ -79,10 +80,12 @@ export class WishContainer extends Component {
 
     render() {
         const { wish, data } = this.state
-
+        const { history } = this.props
         return (
 
             <div>
+
+                <LeftHeader history={history} />
                 {wish ? <Chart data={data} /> : ''}
                 <Wish wish={wish} movePage={this.showDetail} />
             </div >

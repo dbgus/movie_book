@@ -4,6 +4,7 @@ import { movieRequest, scrollReqeuest } from "../store/modules/default";
 
 
 import MovieList from '../components/MovieList'
+import LeftHeader from './HeaderContainer'
 
 export class Root extends Component {
     state = {
@@ -38,7 +39,7 @@ export class Root extends Component {
 
     }
 
-    
+
     movePage = (page) => {
         const { history } = this.props
         history.push(`/detail/${page.target.id}`)
@@ -46,9 +47,10 @@ export class Root extends Component {
 
     render() {
 
-        const { data } = this.props
+        const { data, history } = this.props
         return (
             <div>
+                <LeftHeader history={history} />
                 <MovieList onScroll={this.handleOnScroll} data={data} movePage={this.movePage} />
 
             </div>

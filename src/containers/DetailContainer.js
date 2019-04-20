@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import { detailReqeust, clear } from "../store/modules/detail";
 import Detail from '../components/Detail'
 import Loading from '../components/Loading'
+import LeftHeader from './HeaderContainer'
 
 export class DetailContainer extends Component {
 
@@ -44,9 +45,9 @@ export class DetailContainer extends Component {
                 }
             }
             else {
-                if (watch.find(el => parseInt(el) === id)){
+                if (watch.find(el => parseInt(el) === id)) {
                     this.setState({
-                        watch:true
+                        watch: true
                     })
                 }
             }
@@ -156,10 +157,11 @@ export class DetailContainer extends Component {
 
     render() {
         const { wish, watch } = this.state
-        const { data, status } = this.props;
+        const { data, status, history } = this.props;
         if (data && status) {
             return (
                 <div>
+                    <LeftHeader history={history} />
                     <Detail
                         key={data.id}
                         data={data}

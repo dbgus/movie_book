@@ -9,6 +9,9 @@ export class HeaderContainer extends Component {
             toggle: false
         }
     }
+    componentWillMount() {
+    }
+    
 
     MenuBtn = () => {
         const { toggle } = this.state

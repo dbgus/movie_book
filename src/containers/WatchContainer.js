@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
+import Axios from 'axios';
 
 import Watch from '../components/Watch'
-import Axios from 'axios';
+import LeftHeader from './HeaderContainer'
 
 export class WatchContainer extends Component {
     state = {
@@ -31,12 +32,13 @@ export class WatchContainer extends Component {
 
     render() {
         const { watch } = this.state
-
-        return (
-            <div>
-                <Watch watch={watch} movePage={this.showDetail} />
-            </div>
-        )
+        const { history } = this.props
+            return(
+                <div>
+                    <LeftHeader history={history} />
+                    <Watch watch={watch} movePage={this.showDetail} />
+                </div>
+            )
     }
 }
 

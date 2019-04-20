@@ -87,7 +87,6 @@ function LeftHeader({ Toggle, status, move }) {
                         <HederListItems onClick={move} id="wish" >wish list</HederListItems>
                         <HederListItems onClick={move} id="watch">watch list</HederListItems>
                         <HederListItems onClick={move} id="about" >about</HederListItems>
-                        <HederListItems onClick={move} id="setting">setting</HederListItems>
                     </HederList>
                     <Footer>
                         <p>footer</p>
